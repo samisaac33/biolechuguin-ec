@@ -1,4 +1,5 @@
 import { plantAreas } from "@/content/industrialModel";
+import { Reveal } from "@/components/Reveal";
 
 export function PlantAreasDiagram() {
   return (
@@ -13,9 +14,9 @@ export function PlantAreasDiagram() {
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {plantAreas.map((area, index) => (
+            <Reveal key={area.id} delayMs={index * 40}>
             <article
-              key={area.id}
-              className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
+              className="card-hover h-full rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
             >
               <span className="text-xs font-bold uppercase tracking-wide text-sky-700">
                 Área {index + 1}
@@ -27,6 +28,7 @@ export function PlantAreasDiagram() {
                 {area.description}
               </p>
             </article>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -9,13 +9,23 @@ export type NavLink =
   | { type: "route"; href: string; label: string }
   | { type: "anchor"; href: string; label: string };
 
-export const navLinksHome: NavLink[] = [
+/** Barra desktop (lg+): sin overflow horizontal */
+export const navLinksHomePrimary: NavLink[] = [
+  { type: "anchor", href: "#vision", label: "Visión" },
+  { type: "anchor", href: "#solucion", label: "Solución" },
+  { type: "anchor", href: "#proceso", label: "Proceso" },
+  { type: "anchor", href: "#impacto", label: "Impacto" },
+  { type: "route", href: "/modelo-industrial", label: "Modelo industrial" },
+];
+
+/** Menú móvil: acceso a todas las secciones */
+export const navLinksHomeFull: NavLink[] = [
   { type: "anchor", href: "#vision", label: "Visión" },
   { type: "anchor", href: "#problema", label: "Problema" },
   { type: "anchor", href: "#solucion", label: "Solución" },
   { type: "anchor", href: "#proceso", label: "Proceso" },
   { type: "anchor", href: "#impacto", label: "Impacto ESG" },
-  { type: "anchor", href: "#modelo", label: "Modelo" },
+  { type: "anchor", href: "#modelo", label: "Modelo de negocio" },
   { type: "route", href: "/modelo-industrial", label: "Modelo industrial" },
   { type: "anchor", href: "#alianzas", label: "Alianzas" },
 ];

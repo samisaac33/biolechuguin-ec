@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { NavLink } from "@/content/pitch";
-import { navLinksHome, navLinksInner } from "@/content/pitch";
+import { navLinksHomePrimary, navLinksInner } from "@/content/pitch";
 
 function NavItem({ link }: { link: NavLink }) {
   const className =
-    "rounded-md px-2.5 py-1.5 text-sm text-emerald-900/80 transition-colors hover:bg-sky-50 hover:text-sky-950 whitespace-nowrap";
+    "rounded-md px-2 py-1.5 text-xs xl:text-sm text-slate-700 transition-colors hover:bg-sky-50 hover:text-sky-950";
 
   if (link.type === "route") {
     return (
@@ -27,11 +27,11 @@ function NavItem({ link }: { link: NavLink }) {
 export function HeaderNav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const links = isHome ? navLinksHome : navLinksInner;
+  const links = isHome ? navLinksHomePrimary : navLinksInner;
 
   return (
     <nav
-      className="hidden max-w-xl items-center gap-0.5 overflow-x-auto md:flex lg:max-w-none"
+      className="hidden shrink-0 items-center gap-0.5 lg:flex"
       aria-label="Navegación principal"
     >
       {links.map((link) => (

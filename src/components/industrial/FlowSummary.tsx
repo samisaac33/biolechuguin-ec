@@ -1,9 +1,11 @@
 import { flowSummary } from "@/content/industrialModel";
+import { Reveal } from "@/components/Reveal";
 
 export function FlowSummary() {
   return (
     <section className="py-12 sm:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <Reveal>
         <h2 className="text-xl font-semibold text-slate-900 sm:text-2xl">
           Flujo lineal del proceso
         </h2>
@@ -21,6 +23,7 @@ export function FlowSummary() {
             </li>
           ))}
         </ol>
+        </Reveal>
       </div>
     </section>
   );

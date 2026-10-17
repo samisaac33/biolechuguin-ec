@@ -1,4 +1,5 @@
 import { plantAreas, processSteps } from "@/content/industrialModel";
+import { Reveal } from "@/components/Reveal";
 
 const areaNameById = Object.fromEntries(
   plantAreas.map((a) => [a.id, a.name]),
@@ -12,10 +13,10 @@ export function ProcessTimeline() {
           Proceso paso a paso y equipamiento
         </h2>
         <ol className="mt-10 space-y-8">
-          {processSteps.map((step) => (
+          {processSteps.map((step, index) => (
+            <Reveal key={step.step} delayMs={index * 30}>
             <li
-              key={step.step}
-              className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+              className="card-hover relative list-none rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
             >
               <div className="flex flex-wrap items-start gap-4">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sky-700 text-sm font-bold text-white">
@@ -71,6 +72,7 @@ export function ProcessTimeline() {
                 </div>
               </div>
             </li>
+            </Reveal>
           ))}
         </ol>
       </div>
