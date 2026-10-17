@@ -41,6 +41,8 @@ export const hero = {
     "Valorizamos el lechuguín retirado de embalses y represas donde opera la gestión pública del agua, para producir envases y cubiertos biodegradables que sustituyen plástico de un solo uso.",
   elevator:
     "La gestión hídrica ya invierte en retirar toneladas de lechuguín; proponemos convertir esa biomasa en materia prima de bioplástico, con impacto ambiental, social y de gobernanza medible.",
+  elevatorMobile:
+    "La gestión hídrica ya retira lechuguín; proponemos convertir esa biomasa en materia prima compostable con impacto medible.",
   ctaPrimary: { href: "#alianzas", label: "Marco de alianza" },
   ctaSecondary: { href: "/modelo-industrial", label: "Modelo industrial" },
 } as const;
