@@ -23,16 +23,16 @@ export const media = {
     creditUrl: "https://unsplash.com",
   },
   solution: {
-    src: u("photo-1604719312566-8912e9227c6a", 1000),
-    alt: "Envases y productos sobre mesa (referencia ilustrativa)",
-    credit: "Unsplash",
-    creditUrl: "https://unsplash.com/photos/1604719312566-8912e9227c6a",
+    src: "/illustrations/solucion-dual-agua-industria.jpg",
+    alt: "Ilustración conceptual: embalse con lechuguín y valorización industrial en productos compostables",
+    credit: "Ilustración IA (referencia conceptual)",
+    creditUrl: "#solucion",
   },
   process: {
-    src: u("photo-1581092160562-40aa08e78837", 1000),
-    alt: "Entorno de producción industrial limpia",
-    credit: "Unsplash",
-    creditUrl: "https://unsplash.com",
+    src: "/illustrations/cadena-valor-resumen.jpg",
+    alt: "Ilustración conceptual de la cadena de valor: cosecha, secado, molienda y producto",
+    credit: "Ilustración IA (referencia conceptual)",
+    creditUrl: "#proceso",
   },
   industrialHero: {
     src: u("photo-1586528116311-ad8dd3c8310d", 1400),
@@ -43,4 +43,4 @@ export const media = {
 } as const satisfies Record<string, StockPhoto>;
 
 export const photoCreditsLine =
-  "Imágenes de referencia vía Unsplash (ilustrativas; no representan instalaciones reales del proyecto).";
+  "Ilustraciones de solución y proceso generadas con IA; otras imágenes vía Unsplash. Referencia conceptual; no representan instalaciones reales del proyecto.";
