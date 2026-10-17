@@ -5,6 +5,7 @@ export type StockPhoto = {
   creditUrl: string;
 };
 
+// Usar solo photo-IDs comprobados (404 en Unsplash = imagen rota en producción).
 const u = (id: string, w = 1200) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -22,10 +23,10 @@ export const media = {
     creditUrl: "https://unsplash.com",
   },
   solution: {
-    src: u("photo-1607083206869-4c6672b72c2d", 1000),
-    alt: "Productos desechables de material natural sobre mesa",
+    src: u("photo-1604719312566-8912e9227c6a", 1000),
+    alt: "Envases y productos sobre mesa (referencia ilustrativa)",
     credit: "Unsplash",
-    creditUrl: "https://unsplash.com",
+    creditUrl: "https://unsplash.com/photos/1604719312566-8912e9227c6a",
   },
   process: {
     src: u("photo-1581092160562-40aa08e78837", 1000),
@@ -34,10 +35,10 @@ export const media = {
     creditUrl: "https://unsplash.com",
   },
   industrialHero: {
-    src: u("photo-1565043666747-69f1076ccbaa", 1400),
+    src: u("photo-1586528116311-ad8dd3c8310d", 1400),
     alt: "Interior de planta de manufactura",
     credit: "Unsplash",
-    creditUrl: "https://unsplash.com",
+    creditUrl: "https://unsplash.com/photos/1586528116311-ad8dd3c8310d",
   },
 } as const satisfies Record<string, StockPhoto>;
 
