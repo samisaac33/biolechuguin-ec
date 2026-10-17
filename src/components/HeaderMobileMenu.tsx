@@ -124,15 +124,6 @@ export function HeaderMobileMenu() {
                       onNavigate={close}
                     />
                   ))}
-                  {isHome ? (
-                    <a
-                      href="#alianzas"
-                      className="mx-2 mt-4 rounded-full bg-sky-700 px-4 py-3 text-center text-sm font-medium text-white"
-                      onClick={close}
-                    >
-                      Alianzas
-                    </a>
-                  ) : null}
                 </div>
               </nav>
             </>,

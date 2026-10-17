@@ -16,7 +16,7 @@ export default function ModeloIndustrialPage() {
   return (
     <>
       <Header />
-      <main>
+      <main className="flex-1">
         <IndustrialHero />
         <FlowSummary />
         <PlantAreasDiagram />
