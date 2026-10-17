@@ -36,6 +36,10 @@ export const navLinksInner: NavLink[] = [
 ];
 
 export const hero = {
+  titleMobile: "BioLechuguín",
+  taglineMobile: "Del embalse al envase compostable",
+  subtitleMobile:
+    "Envases y cubiertos biodegradables a partir del lechuguín retirado con la gestión pública del agua.",
   title: "De invasora en el embalse a envase que vuelve a la tierra",
   subtitle:
     "Valorizamos el lechuguín retirado de embalses y represas donde opera la gestión pública del agua, para producir envases y cubiertos biodegradables que sustituyen plástico de un solo uso.",
