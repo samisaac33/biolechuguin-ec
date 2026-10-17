@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import type { NavLink } from "@/content/pitch";
 import { navLinksHomeFull, navLinksInner } from "@/content/pitch";
 
@@ -33,11 +34,16 @@ function MobileNavItem({
 
 export function HeaderMobileMenu() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
   const links = isHome ? navLinksHomeFull : navLinksInner;
 
   const close = useCallback(() => setOpen(false), []);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     close();
@@ -84,50 +90,55 @@ export function HeaderMobileMenu() {
         )}
       </button>
 
-      {open ? (
-        <>
-          <button
-            type="button"
-            className="fixed inset-0 z-40 bg-slate-900/40 backdrop-blur-sm"
-            aria-label="Cerrar menú"
-            onClick={close}
-          />
-          <nav
-            id="mobile-nav-panel"
-            className="fixed right-0 top-0 z-50 flex h-full w-[min(100%,20rem)] flex-col border-l border-slate-200 bg-white shadow-xl"
-            aria-label="Navegación móvil"
-          >
-            <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3">
-              <span className="text-sm font-semibold text-slate-900">Menú</span>
+      {open && mounted
+        ? createPortal(
+            <>
               <button
                 type="button"
-                className="rounded-md px-2 py-1 text-sm text-slate-600 hover:bg-slate-100"
+                className="fixed inset-0 z-[100] bg-slate-900/40 backdrop-blur-sm"
+                aria-label="Cerrar menú"
                 onClick={close}
+              />
+              <nav
+                id="mobile-nav-panel"
+                className="fixed right-0 top-0 z-[110] flex h-dvh w-[min(100%,20rem)] flex-col border-l border-slate-200 bg-white shadow-xl"
+                aria-label="Navegación móvil"
               >
-                Cerrar
-              </button>
-            </div>
-            <div className="flex flex-1 flex-col gap-1 overflow-y-auto p-2">
-              {links.map((link) => (
-                <MobileNavItem
-                  key={`${link.type}-${link.href}`}
-                  link={link}
-                  onNavigate={close}
-                />
-              ))}
-              {isHome ? (
-                <a
-                  href="#alianzas"
-                  className="mx-2 mt-4 rounded-full bg-sky-700 px-4 py-3 text-center text-sm font-medium text-white"
-                  onClick={close}
-                >
-                  Alianzas
-                </a>
-              ) : null}
-            </div>
-          </nav>
-        </>
-      ) : null}
+                <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3">
+                  <span className="text-sm font-semibold text-slate-900">
+                    Menú
+                  </span>
+                  <button
+                    type="button"
+                    className="rounded-md px-2 py-1 text-sm text-slate-600 hover:bg-slate-100"
+                    onClick={close}
+                  >
+                    Cerrar
+                  </button>
+                </div>
+                <div className="flex flex-1 flex-col gap-1 overflow-y-auto p-2">
+                  {links.map((link) => (
+                    <MobileNavItem
+                      key={`${link.type}-${link.href}`}
+                      link={link}
+                      onNavigate={close}
+                    />
+                  ))}
+                  {isHome ? (
+                    <a
+                      href="#alianzas"
+                      className="mx-2 mt-4 rounded-full bg-sky-700 px-4 py-3 text-center text-sm font-medium text-white"
+                      onClick={close}
+                    >
+                      Alianzas
+                    </a>
+                  ) : null}
+                </div>
+              </nav>
+            </>,
+            document.body,
+          )
+        : null}
     </div>
   );
 }
