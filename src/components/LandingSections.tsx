@@ -11,6 +11,7 @@ import {
 import { media } from "@/content/media";
 import { Reveal } from "./Reveal";
 import { SectionShell } from "./SectionShell";
+import { StepCard } from "./StepCard";
 import { StockImage } from "./StockImage";
 
 export function PublicPrivateSection() {
@@ -138,15 +139,10 @@ export function ProcessSection() {
             sizes="(max-width: 1024px) 100vw, 360px"
           />
         </Reveal>
-        <ol className="grid gap-4 sm:grid-cols-2 lg:col-span-3">
+        <ol className="grid gap-5 sm:grid-cols-2 lg:col-span-3">
           {process.steps.map((step, index) => (
             <Reveal key={step} delayMs={index * 50}>
-              <li className="card-hover relative h-full rounded-xl border border-slate-200 bg-white p-4 pt-8 shadow-sm">
-                <span className="absolute left-4 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-sky-700 text-xs font-bold text-white">
-                  {index + 1}
-                </span>
-                <p className="text-sm leading-relaxed text-slate-800">{step}</p>
-              </li>
+              <StepCard step={index + 1}>{step}</StepCard>
             </Reveal>
           ))}
         </ol>
