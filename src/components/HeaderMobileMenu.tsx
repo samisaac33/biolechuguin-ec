@@ -5,30 +5,38 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import type { NavLink } from "@/content/pitch";
-import { navLinksHomeFull, navLinksInner } from "@/content/pitch";
+import { navLinksHomeFull } from "@/content/pitch";
+
+function navHref(link: NavLink, pathname: string): string {
+  if (link.type === "route") return link.href;
+  return pathname === "/" ? link.href : `/${link.href}`;
+}
 
 function MobileNavItem({
   link,
+  pathname,
   onNavigate,
 }: {
   link: NavLink;
+  pathname: string;
   onNavigate: () => void;
 }) {
   const className =
     "block rounded-lg px-4 py-3 text-base text-slate-800 hover:bg-sky-50";
+  const href = navHref(link, pathname);
 
   if (link.type === "route") {
     return (
-      <Link href={link.href} className={className} onClick={onNavigate}>
+      <Link href={href} className={className} onClick={onNavigate}>
         {link.label}
       </Link>
     );
   }
 
   return (
-    <a href={link.href} className={className} onClick={onNavigate}>
+    <Link href={href} className={className} onClick={onNavigate}>
       {link.label}
-    </a>
+    </Link>
   );
 }
 
@@ -36,8 +44,6 @@ export function HeaderMobileMenu() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const links = isHome ? navLinksHomeFull : navLinksInner;
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -117,10 +123,11 @@ export function HeaderMobileMenu() {
                   </button>
                 </div>
                 <div className="flex flex-1 flex-col gap-1 overflow-y-auto p-2">
-                  {links.map((link) => (
+                  {navLinksHomeFull.map((link) => (
                     <MobileNavItem
                       key={`${link.type}-${link.href}`}
                       link={link}
+                      pathname={pathname}
                       onNavigate={close}
                     />
                   ))}
