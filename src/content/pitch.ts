@@ -124,7 +124,7 @@ export const process = {
   intro:
     "Flujo de referencia para lechuguín valorizado; detalle de equipos y áreas en el modelo industrial.",
   steps: [
-    "Cosecha mecánica en lagos y represas.",
+    "Cosecha mecánica en embalses y represas.",
     "Prensado y secado de biomasa.",
     "Molienda y obtención de fibra/celulosa.",
     "Formulación, extrusión a pellets y conformado de productos.",
