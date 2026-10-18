@@ -135,7 +135,8 @@ export function ProcessSection() {
         <Reveal className="lg:col-span-2">
           <StockImage
             photo={media.process}
-            className="aspect-[4/3] w-full rounded-2xl shadow-md ring-1 ring-slate-200"
+            className="aspect-[4/3] w-full rounded-2xl bg-gradient-to-br from-sky-50/80 to-emerald-50/40 shadow-md ring-1 ring-slate-200 sm:aspect-[16/11]"
+            imageClassName="object-contain object-center p-1 sm:p-2"
             sizes="(max-width: 1024px) 100vw, 360px"
           />
         </Reveal>

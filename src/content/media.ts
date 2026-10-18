@@ -30,7 +30,7 @@ export const media = {
   },
   process: {
     src: "/illustrations/cadena-valor-resumen.jpg",
-    alt: "Ilustración conceptual de la cadena de valor: cosecha, secado, molienda y producto",
+    alt: "Infografía de la cadena de valor del envase biodegradable: cosecha en embalse, secado de biomasa, molienda y conformado de envases compostables",
     credit: "Ilustración IA (referencia conceptual)",
     creditUrl: "#proceso",
   },
