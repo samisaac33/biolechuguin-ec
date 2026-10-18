@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { hero } from "@/content/pitch";
 import { media } from "@/content/media";
+import { MobileHeroHeadline } from "./MobileHeroHeadline";
 import { StockImage } from "./StockImage";
 
 export function Hero() {
@@ -15,14 +16,7 @@ export function Hero() {
         }}
       />
       <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:py-28">
-        <div className="hero-fade-in mb-5 lg:hidden">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-[2.75rem]">
-            {hero.titleMobile}
-          </h1>
-          <p className="mt-2 text-lg font-medium text-sky-800">
-            {hero.taglineMobile}
-          </p>
-        </div>
+        <MobileHeroHeadline />
         <div className="grid items-center gap-6 sm:gap-10 lg:grid-cols-2 lg:gap-12">
           <div className="hero-fade-in order-2 lg:order-1">
             <p className="hidden text-sm font-medium uppercase tracking-wider text-sky-800 lg:block">

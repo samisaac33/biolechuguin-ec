@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content/pitch";
+import { HeaderAllianceMark } from "./HeaderAllianceMark";
 import { HeaderMobileMenu } from "./HeaderMobileMenu";
 import { HeaderNav } from "./HeaderNav";
 import { HeaderShell } from "./HeaderShell";
@@ -14,31 +15,22 @@ export function Header() {
           className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3 lg:flex-initial"
           aria-label={`Alianza entre ${site.publicPartnerName} y ${site.name}`}
         >
-          <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
+          <div className="flex min-w-0 max-w-[min(100%,calc(100vw-3.5rem))] items-center gap-1 sm:gap-1.5">
             <Image
               src="/logo-empresa-publica-agua.png"
               alt={site.publicPartnerName}
               width={160}
               height={48}
-              className="h-9 w-auto max-w-[42vw] shrink-0 object-contain object-left sm:h-10 sm:max-w-none"
+              className="h-8 w-auto max-w-[34vw] shrink-0 object-contain object-left sm:h-10 sm:max-w-[9.5rem] md:max-w-none"
               priority
             />
-            <span
-              className="flex shrink-0 items-center gap-1.5 sm:gap-2"
-              aria-hidden
-            >
-              <span className="h-7 w-px bg-slate-300 sm:h-8" />
-              <span className="rounded-md bg-sky-100/80 px-1 py-0.5 text-[10px] font-bold leading-none text-sky-800 ring-1 ring-sky-200/80 sm:px-1.5 sm:text-[11px]">
-                ×
-              </span>
-              <span className="h-7 w-px bg-slate-300 sm:h-8" />
-            </span>
+            <HeaderAllianceMark />
             <Image
               src="/logo-biolechuguin-ec.jpg"
               alt={site.name}
               width={80}
               height={80}
-              className="h-9 w-9 shrink-0 rounded-full object-cover ring-1 ring-emerald-200/90 sm:h-10 sm:w-10"
+              className="h-8 w-8 shrink-0 rounded-full object-cover shadow-sm ring-1 ring-emerald-300/80 sm:h-10 sm:w-10"
               priority
             />
           </div>

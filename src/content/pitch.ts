@@ -36,8 +36,12 @@ export const navLinksInner: NavLink[] = [
 ];
 
 export const hero = {
-  titleMobile: "BioLechuguín",
-  taglineMobile: "Del embalse al envase compostable",
+  titleMobile: "Biolechuguin Ec",
+  titleMobileBrand: "Biolechuguin",
+  titleMobileSuffix: "Ec",
+  taglineMobile: "Del embalse al envase",
+  taglineMobileLead: "Del embalse",
+  taglineMobileAccent: "al envase",
   subtitleMobile:
     "Envases y cubiertos biodegradables a partir del lechuguín retirado con la gestión pública del agua.",
   title: "De invasora en el embalse a envase que vuelve a la tierra",

@@ -26,6 +26,10 @@ body {
   .hero-fade-in {
     animation: heroFadeIn 0.8s ease-out both;
   }
+
+  .hero-tagline-rise {
+    animation: heroTaglineRise 0.9s ease-out 0.12s both;
+  }
 }
 
 @keyframes heroFadeIn {
@@ -39,8 +43,20 @@ body {
   }
 }
 
+@keyframes heroTaglineRise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-fade-in {
+  .hero-fade-in,
+  .hero-tagline-rise {
     animation: none;
   }
 }
