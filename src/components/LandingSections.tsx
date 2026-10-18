@@ -11,7 +11,7 @@ import {
 import { media } from "@/content/media";
 import { Reveal } from "./Reveal";
 import { SectionShell } from "./SectionShell";
-import { StepCard } from "./StepCard";
+import { ProcessStepCard } from "./ProcessStepCard";
 import { StockImage } from "./StockImage";
 
 export function PublicPrivateSection() {
@@ -131,23 +131,15 @@ export function SolutionSection() {
 export function ProcessSection() {
   return (
     <SectionShell id={process.id} title={process.title} intro={process.intro}>
-      <div className="grid gap-8 lg:grid-cols-5">
-        <Reveal className="lg:col-span-2">
-          <StockImage
-            photo={media.process}
-            className="aspect-[4/3] w-full rounded-2xl bg-gradient-to-br from-sky-50/80 to-emerald-50/40 shadow-md ring-1 ring-slate-200 sm:aspect-[16/11]"
-            imageClassName="object-contain object-center p-1 sm:p-2"
-            sizes="(max-width: 1024px) 100vw, 360px"
-          />
-        </Reveal>
-        <ol className="grid gap-5 sm:grid-cols-2 lg:col-span-3">
-          {process.steps.map((step, index) => (
-            <Reveal key={step} delayMs={index * 50}>
-              <StepCard step={index + 1}>{step}</StepCard>
-            </Reveal>
-          ))}
-        </ol>
-      </div>
+      <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+        {process.steps.map((step, index) => (
+          <Reveal key={step} delayMs={index * 60}>
+            <ProcessStepCard step={index + 1} stepIndex={index}>
+              {step}
+            </ProcessStepCard>
+          </Reveal>
+        ))}
+      </ol>
       <Reveal>
         <p className="mt-6 text-sm text-slate-600 italic">{process.note}</p>
         <Link
