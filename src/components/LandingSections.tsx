@@ -131,9 +131,9 @@ export function SolutionSection() {
 export function ProcessSection() {
   return (
     <SectionShell id={process.id} title={process.title} intro={process.intro}>
-      <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+      <ol className="flex max-w-3xl flex-col gap-3 sm:gap-4">
         {process.steps.map((step, index) => (
-          <Reveal key={step} delayMs={index * 60}>
+          <Reveal key={step} delayMs={index * 50}>
             <ProcessStepCard step={index + 1} stepIndex={index}>
               {step}
             </ProcessStepCard>
